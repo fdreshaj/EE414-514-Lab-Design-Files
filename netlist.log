@@ -1,0 +1,36 @@
+; Top Design: "EE_514_lib:Lab2:schematic"
+; Netlisted using Hierarchy Policy: "Standard"
+
+Options ResourceUsage=yes UseNutmegFormat=no EnableOptim=no TopDesignName="EE_514_lib:Lab2:schematic" DcopOutputNodeVoltages=yes DcopOutputPinCurrents=yes DcopOutputAllSweepPoints=no DcopOutputDcopType=0
+S_Param:SP1 CalcS=yes CalcY=yes CalcZ=no GroupDelayAperture=1e-4 FreqConversion=no FreqConversionPort=1 StatusLevel=2 CalcNoise=no SortNoise=0 BandwidthForNoise=1.0 Hz DevOpPtLevel=0 SPSS_WSP=yes \
+SweepVar="freq" SweepPlan="SP1_stim" OutputPlan="SP1_Output" 
+
+SweepPlan: SP1_stim Start=300 kHz Stop=6 GHz Lin=201 
+
+OutputPlan:SP1_Output \
+      Type="Output" \
+      UseEquationNestLevel=yes \
+      EquationNestLevel=2 \
+      UseSavedEquationNestLevel=yes \
+      SavedEquationNestLevel=2
+
+#load "python","LinearCollapse"
+Component Module="LinearCollapse" Type="ModelExtractor" NetworkRepresentation=2
+Port:Term3  N__14 0 Num=3 Z=50 Ohm Noise=yes 
+Port:Term5  N__12 0 Num=5 Z=50 Ohm Noise=yes 
+aele Z1pi_10 = 1 / Y1pi_10;Z3pi_10 = 1/Y3pi_10;
+aele Y1pi_10 = (Y(1,1) + 0.5 * (Y(1,2) + Y(2,1)));Y3pi_10 = -(0.5 * (Y(1,2) + Y(2,1)));
+aele Y1pi_820 = (Y(5,5) + 0.5 * (Y(5,6) + Y(6,5)));Y3pi_820 = -(0.5 * (Y(5,6) + Y(6,5)));
+aele Y1pi_51 = (Y(3,3) + 0.5 * (Y(3,4) + Y(4,3)));Y3pi_51 = -(0.5 * (Y(3,4) + Y(4,3)));
+aele Z1pi_51 = 1 / Y1pi_51;Z3pi_51 = 1/Y3pi_51;
+aele Z1pi_820 = 1 / Y1pi_820;Z3pi_820 = 1/Y3pi_820;
+Port:Term6  N__10 0 Num=6 Z=50 Ohm Noise=yes 
+Port:Term4  N__17 0 Num=4 Z=50 Ohm Noise=yes 
+Port:Term2  N__13 0 Num=2 Z=50 Ohm Noise=yes 
+Port:Term1  N__16 0 Num=1 Z=50 Ohm Noise=yes 
+#uselib "ckt" , "SnP"
+SnP:SnP1  N__16 N__13 NumPorts=2 File="C:\Users\fdreshaj\Downloads\EE5140_SParams_DUTOnly\EE5140_DUTOnly\s_DUT_10_0603.s2p" Type="touchstone" InterpMode="linear" InterpDom="" ExtrapMode="constant" Temp=27.0 CheckPassivity=0 
+#uselib "ckt" , "SnP"
+SnP:SnP2  N__14 N__17 NumPorts=2 File="C:\Users\fdreshaj\Downloads\EE5140_SParams_DUTOnly\EE5140_DUTOnly\s_DUT_51_0603.s2p" Type="touchstone" InterpMode="linear" InterpDom="" ExtrapMode="constant" Temp=27.0 CheckPassivity=0 
+#uselib "ckt" , "SnP"
+SnP:SnP3  N__12 N__10 NumPorts=2 File="C:\Users\fdreshaj\Downloads\EE5140_SParams_DUTOnly\EE5140_DUTOnly\s_DUT_820_0603.s2p" Type="touchstone" InterpMode="linear" InterpDom="" ExtrapMode="constant" Temp=27.0 CheckPassivity=0 

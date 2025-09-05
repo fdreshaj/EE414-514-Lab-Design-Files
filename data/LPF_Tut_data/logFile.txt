@@ -1,0 +1,30 @@
+
+hpeesofsim (*) 620.shp Mar  6 2025, MINT version 5
+    (64-bit windows built: Fri Mar 07, 2025 05:21:57 +0000)
+
+
+***** Simulation started at Fri Aug 29 12:12:25 2025
+      Running on host: "CO2048-04"
+      In Directory: "\\iastate.edu\Files\Users\fdreshaj\Desktop\EE_514\data"
+      Process ID: 14288
+
+Warning detected by hpeesofsim in topology check during circuit set up.
+    Number of nodes with no DC path to ground (topology corrected): 1
+
+
+DC DC1[1] <EE_514_lib:LPF_Tut:schematic>  
+.Pt DC convergence is used.
+
+..
+.......................................................................................
+
+.
+
+DC convergence achieved in 17906 iterations.
+
+AC AC1[1] <EE_514_lib:LPF_Tut:schematic>   freq=(1 Hz->100 kHz)
+
+
+Resource usage:
+  Total stopwatch time     =     2.00 seconds.
+

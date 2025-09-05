@@ -1,0 +1,17 @@
+
+hpeesofsim (*) 620.shp Mar  6 2025, MINT version 5
+    (64-bit windows built: Fri Mar 07, 2025 05:21:57 +0000)
+
+
+***** Simulation started at Fri Sep  5 12:44:51 2025
+      Running on host: "CO2048-04"
+      In Directory: "\\iastate.edu\Files\Users\fdreshaj\Desktop\EE_514\data"
+      Process ID: 3232
+
+
+SP SP1[1] <EE_514_lib:Lab2:schematic>   freq=(300 kHz->6 GHz)
+
+
+Resource usage:
+  Total stopwatch time     =    22.62 seconds.
+
